@@ -6,7 +6,7 @@ def survey1(app, main_content_rect, step_value_survey):
     options = ["Beginner: Not familiar with any tactics",
                "Intermediate: Know some memory tricks",
                "Professional: Can frame own statements but need more time",
-               "Advanced: Can frame own statements and arguments within limited time and tension"
+               "Advanced: Can frame own statements and arguments within limited time"
                ]
 
     welcome_text = Image.open("assets/images/Welcome_text.png")
@@ -47,5 +47,15 @@ def survey1(app, main_content_rect, step_value_survey):
         rb3 = ctk.CTkRadioButton(app, text="Professional: Can frame own statements but need more time", bg_color="#FFFFFF", variable=selected_option, value="3", font=ctk.CTkFont(size=15, family="Arial"), hover_color="#0059ff", width=500, height=40, corner_radius=10)
         rb3.place(x=850, y=700)
 
-        rb4 = ctk.CTkRadioButton(app, text="Advanced: Can frame own statements and arguments within limited time and tension", bg_color="#FFFFFF", variable=selected_option, value="4", font=ctk.CTkFont(size=15, family="Arial"), hover_color="#0059ff", width=500, height=40, corner_radius=10)
+        rb4 = ctk.CTkRadioButton(app, text="Advanced: Can frame own statements and arguments within limited time", bg_color="#FFFFFF", variable=selected_option, value="4", font=ctk.CTkFont(size=15, family="Arial"), hover_color="#0059ff", width=500, height=40, corner_radius=10)
         rb4.place(x=850, y=750)
+
+    def next_step2():
+        step_value_survey = 2
+        for widget in app.winfo_children():
+            widget.destroy()
+        import survey2
+        survey2.survey2(app, main_content_rect, step_value_survey)
+    
+    survey1_submit = ctk.CTkButton(app, text="Next", font=ctk.CTkFont(size=20, family="Arial"), fg_color="#0059ff", hover_color="#0041c4", width=200, height=50, corner_radius=10, command=next_step2)
+    survey1_submit.place(x=1000, y=800)
